@@ -45,14 +45,18 @@ function menuMaker(menuItems){
     const listItem = document.createElement('li');
     listItem.textContent = item;
     list.appendChild(listItem);
+    // console.log(listItem);
   });
+
+  // append list to menu
+  menuItem.appendChild(list);
 
   // select menu button
   const menuButton = document.querySelector('.menu-button');
 
   // add a click listener to the menu button
   menuButton.addEventListener('click', () => {
-    document.querySelector('.menu').classList.toggle('menu-open');
+    document.querySelector('.menu').classList.toggle('menu--open');
   });
 
   // return
@@ -60,4 +64,5 @@ function menuMaker(menuItems){
 }
 
 const menu = menuMaker(menuItems);
+console.log(menu);
 document.querySelector('.header').appendChild(menu);
