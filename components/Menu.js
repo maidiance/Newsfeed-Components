@@ -37,15 +37,27 @@ function menuMaker(menuItems){
   const menuItem = document.createElement('div');
   const list = document.createElement('ul');
 
+  // add menu class
+  menuItem.classList.add('menu');
+
   // append menu items to list
   menuItems.forEach(item => {
     const listItem = document.createElement('li');
+    listItem.textContent = item;
     list.appendChild(listItem);
   });
 
   // select menu button
   const menuButton = document.querySelector('.menu-button');
 
+  // add a click listener to the menu button
+  menuButton.addEventListener('click', () => {
+    document.querySelector('.menu').classList.toggle('menu-open');
+  });
+
   // return
   return menuItem;
 }
+
+const menu = menuMaker(menuItems);
+document.querySelector('.header').appendChild(menu);
